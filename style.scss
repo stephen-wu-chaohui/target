@@ -1,0 +1,44 @@
+$at: 0 !default;
+$circles: 6;
+
+@while $at < 6 + 1 {
+  #outer#{$at} {
+    width: (($circles + 1) - $at) * (200px / $circles - 1);
+    height: (($circles + 1) - $at) * (200px / $circles - 1);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    @if $at % 2 == 0 {
+      background: red;
+    } @else {
+      background: white;
+    }
+  }
+  $at: $at + 1;
+}
+
+body {
+  background: rgb(0, 105, 0);
+}
+html {
+  cursor: crosshair;
+  user-select: none;
+  color: white;
+  font-size: 3rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+// #score {
+//   background: black;
+//   padding: 2px;
+//   border: 5px solid rgb(90, 90, 90);
+//   width: min(100%, max(2em, fit-content));
+//   // min-width: fit-content;
+//   // max-width: 100%;
+//   overflow: auto;
+//   position: absolute;
+//   left: 50%;
+//   transform: translate(-50%);
+//   pointer-events: none;
+// }
